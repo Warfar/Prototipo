@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas | Comedor Social</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/entrega.css"> <!-- Nuevo archivo CSS para estilos específicos -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar de Navegación (igual que en las otras páginas del dashboard) -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <span class="logo">Comedor Social</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="beneficiarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Beneficiarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="inventario.html">
+                            <i class="fas fa-boxes"></i>
+                            <span>Inventario</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menus.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menús</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="voluntarios.html">
+                            <i class="fas fa-handshake"></i>
+                            <span>Voluntarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active"> <!-- Marcado como activo para esta página -->
+                        <a href="entregas.html">
+                            <i class="fas fa-truck"></i>
+                            <span>Entregas</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal de Entregas -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar entregas o beneficiarios...">
+                </div>
+                <div class="user-profile">
+                    <span class="welcome-message">Bienvenido, Admin!</span>
+                    <i class="fas fa-bell notification-icon"></i>
+                    <div class="user-avatar">
+                        <img src="../img/elena.jpg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <section class="entregas-section">
+                <h2>Gestión de Entregas</h2>
+
+                <div class="actions-bar">
+                    <button class="btn btn-primary" id="addEntregaBtn">
+                        <i class="fas fa-plus-circle"></i> Programar Nueva Entrega
+                    </button>
+                    <div class="filter-options">
+                        <label for="filterEstadoEntrega">Estado:</label>
+                        <select id="filterEstadoEntrega">
+                            <option value="all">Todos</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en_curso">En Curso</option>
+                            <option value="completada">Completada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                        <label for="filterTipoEntrega">Tipo:</label>
+                        <select id="filterTipoEntrega">
+                            <option value="all">Todos</option>
+                            <option value="domicilio">Domicilio</option>
+                            <option value="cocina">Cocina</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="entregas-list card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Beneficiario</th>
+                                <th>Voluntario</th>
+                                <th>Fecha/Hora</th>
+                                <th>Dirección / Lugar</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="entregasTableBody">
+                            <!-- Filas de entregas se cargarán con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button class="btn-pagination">&laquo; Anterior</button>
+                    <span>Página 1 de 1</span>
+                    <button class="btn-pagination">Siguiente &raquo;</button>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Añadir/Editar Entrega -->
+    <div id="entregaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle">Programar Nueva Entrega</h3>
+            <form id="entregaForm">
+                <div class="form-group">
+                    <label for="beneficiarioId">Beneficiario:</label>
+                    <select id="beneficiarioId" required>
+                        <option value="">Seleccione un beneficiario</option>
+                        <!-- Opciones cargadas por JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="voluntarioId">Voluntario Asignado:</label>
+                    <select id="voluntarioId">
+                        <option value="">Sin Asignar</option>
+                        <!-- Opciones cargadas por JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fechaEntrega">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fechaEntrega" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipoEntrega">Tipo de Entrega:</label>
+                    <select id="tipoEntrega" required>
+                        <option value="domicilio">A Domicilio</option>
+                        <option value="cocina">Recoger en Cocina</option>
+                    </select>
+                </div>
+                <div class="form-group" id="direccionGroup">
+                    <label for="direccionEntrega">Dirección de Entrega:</label>
+                    <input type="text" id="direccionEntrega" placeholder="Calle, número, ciudad...">
+                </div>
+                <div class="form-group">
+                    <label for="notasEntrega">Notas Adicionales:</label>
+                    <textarea id="notasEntrega" rows="3" placeholder="Instrucciones especiales, alergias, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="estadoEntrega">Estado de la Entrega:</label>
+                    <select id="estadoEntrega">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en_curso">En Curso</option>
+                        <option value="completada">Completada</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Entrega</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Ver Detalles y Mapa de Entrega -->
+    <div id="viewEntregaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Detalles de la Entrega</h3>
+            <div id="entregaDetailsContent">
+                <p><strong>ID:</strong> <span id="viewEntregaId"></span></p>
+                <p><strong>Beneficiario:</strong> <span id="viewEntregaBeneficiario"></span></p>
+                <p><strong>Voluntario:</strong> <span id="viewEntregaVoluntario"></span></p>
+                <p><strong>Fecha y Hora:</strong> <span id="viewEntregaFechaHora"></span></p>
+                <p><strong>Tipo:</strong> <span id="viewEntregaTipo"></span></p>
+                <p><strong>Dirección / Lugar:</strong> <span id="viewEntregaDireccion"></span></p>
+                <p><strong>Notas:</strong> <span id="viewEntregaNotas"></span></p>
+                <p><strong>Estado:</strong> <span id="viewEntregaEstado"></span></p>
+                <hr>
+                <h4>Ubicación de la Entrega</h4>
+                <div id="deliveryMap" style="height: 300px; width: 100%; border-radius: 8px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; color: #888;">
+                    <!-- Aquí se simulará un mapa -->
+                    <p>Simulación de Mapa de Entrega 
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/dashboard.js"></script>
+    <script src="../JS/entregas.js"></script> <!-- Nuevo archivo JS para lógica de entregas -->
+</body>
+</html>

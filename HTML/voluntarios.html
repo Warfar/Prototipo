@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarios | Comedor Social</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/voluntarios.css"> <!-- Nuevo archivo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar de Navegación -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <span class="logo">Comedor Social</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="beneficiarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Beneficiarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="inventario.html">
+                            <i class="fas fa-boxes"></i>
+                            <span>Inventario</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menus.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menús</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active"> <!-- Marcado como activo -->
+                        <a href="voluntarios.html">
+                            <i class="fas fa-handshake"></i>
+                            <span>Voluntarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="entregas.html">
+                            <i class="fas fa-truck"></i>
+                            <span>Entregas</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal de Voluntarios -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar voluntarios...">
+                </div>
+                <div class="user-profile">
+                    <span class="welcome-message">Bienvenido, Admin!</span>
+                    <i class="fas fa-bell notification-icon"></i>
+                    <div class="user-avatar">
+                        <img src="../img/elena.jpg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <section class="voluntarios-section">
+                <h2>Nuestros Voluntarios</h2>
+
+                <div class="actions-bar">
+                    <button class="btn btn-primary" id="addVoluntarioBtn">
+                        <i class="fas fa-user-plus"></i> Añadir Nuevo Voluntario
+                    </button>
+                    <div class="filter-options">
+                        <label for="filterRol">Rol:</label>
+                        <select id="filterRol">
+                            <option value="all">Todos</option>
+                            <option value="cocina">Cocina</option>
+                            <option value="reparto">Reparto</option>
+                            <option value="administracion">Administración</option>
+                            <option value="general">General</option>
+                        </select>
+                        <label for="filterDisponibilidad">Disponibilidad:</label>
+                        <select id="filterDisponibilidad">
+                            <option value="all">Todos</option>
+                            <option value="activa">Activa</option>
+                            <option value="inactiva">Inactiva</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="voluntarios-grid" id="voluntariosGrid">
+                    <!-- Las tarjetas de voluntarios se cargarán aquí -->
+                </div>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button class="btn-pagination" id="prevPageBtn">&laquo; Anterior</button>
+                    <span id="pageInfo">Página 1 de 1</span>
+                    <button class="btn-pagination" id="nextPageBtn">Siguiente &raquo;</button>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Añadir/Editar Voluntario -->
+    <div id="voluntarioModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle">Añadir Nuevo Voluntario</h3>
+            <form id="voluntarioForm">
+                <div class="form-group">
+                    <label for="nombreVoluntario">Nombre Completo:</label>
+                    <input type="text" id="nombreVoluntario" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailVoluntario">Email:</label>
+                    <input type="email" id="emailVoluntario" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefonoVoluntario">Teléfono:</label>
+                    <input type="text" id="telefonoVoluntario" placeholder="Ej: +34123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="rolVoluntario">Rol:</label>
+                    <select id="rolVoluntario" required>
+                        <option value="">Seleccione un rol</option>
+                        <option value="cocina">Cocina</option>
+                        <option value="reparto">Reparto</option>
+                        <option value="administracion">Administración</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="disponibilidadVoluntario">Disponibilidad:</label>
+                    <select id="disponibilidadVoluntario">
+                        <option value="activa">Activa</option>
+                        <option value="inactiva">Inactiva</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imagenVoluntario">URL de la Imagen (opcional):</label>
+                    <input type="text" id="imagenVoluntario" placeholder="Ej: https://via.placeholder.com/150">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Voluntario</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../JS/dashboard.js"></script>
+    <script src="../JS/voluntarios.js"></script> <!-- Nuevo archivo JS -->
+</body>
+</html>

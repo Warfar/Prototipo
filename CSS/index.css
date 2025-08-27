@@ -1,0 +1,495 @@
+/* Variables CSS para colores */
+:root {
+    --primary-color: #48dbfb; /* Azul principal */
+    --secondary-color: #ffeaa7; /* Amarillo suave */
+    --accent-color: #fdcb6e; /* Amarillo más oscuro al hover */
+    --text-dark: #333;
+    --text-light: #555;
+    --bg-light: #f5f7fa;
+    --bg-gradient-start: #f5f7fa;
+    --bg-gradient-end: #c3cfe2;
+    --card-bg: #ffffff;
+    --shadow-light: rgba(0,0,0,0.08);
+    --shadow-medium: rgba(0,0,0,0.1);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la vista */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utilitarios */
+.section-padding {
+    padding: 5rem 5%;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+
+/* Navbar */
+.main-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.main-nav .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.main-nav .menu {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.main-nav .menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.main-nav .menu li a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Botones */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.primary-btn {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+}
+.primary-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid white;
+}
+.secondary-btn:hover {
+    background: transparent;
+    color: white;
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+    text-align: left;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: fadeInDown 1s ease forwards;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0.9;
+}
+
+.hero .btn {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 1.5s ease forwards;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+
+/* About Section */
+.about-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    max-width: 320px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border-bottom: 5px solid var(--primary-color);
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+/* Features Section */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    background: var(--card-bg); /* Mismo fondo que las tarjetas, o un ligero matiz */
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    transition: all 0.4s ease;
+}
+
+.feature-item:hover {
+    background: var(--secondary-color);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px var(--shadow-medium);
+}
+
+.feature-icon {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+    color: var(--text-dark);
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+
+/* Testimonials Section */
+.testimonials {
+    background: linear-gradient(to right, var(--primary-color), #40c4f5); /* Gradiente para los testimonios */
+    color: white;
+}
+
+.testimonials .section-title {
+    color: white;
+}
+
+.testimonials .section-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.15); /* Fondo semitransparente */
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+
+/* Contact Section */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(72, 219, 251, 0.2);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form .primary-btn {
+    align-self: center; /* Centra el botón en el formulario */
+    width: auto;
+    min-width: 180px;
+    padding: 1rem 2rem;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--primary-color);
+    color: white;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+footer p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 992px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .main-nav .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero {
+        flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+        text-align: center;
+        padding-top: 4rem;
+        gap: 2rem;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .hero-image img {
+        max-width: 80%;
+    }
+    .about-cards, .feature-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .card, .feature-item, .testimonial-card {
+        max-width: 100%;
+    }
+    .section-padding {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav .menu {
+        gap: 1rem;
+    }
+    .main-nav .menu li a {
+        font-size: 0.9rem;
+    }
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-description {
+        font-size: 1rem;
+    }
+    .card, .feature-item, .testimonial-card {
+        padding: 2rem;
+    }
+    .card h3, .feature-item h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav .logo {
+        font-size: 1.5rem;
+    }
+    .main-nav .menu {
+        flex-direction: column;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section-description {
+        font-size: 0.9rem;
+    }
+    .contact-form {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Comedor Social</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome (puedes usar otros como Material Icons si prefieres) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar de Navegación -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <span class="logo">Comedor Social</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="beneficiarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Beneficiarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="inventario.html">
+                            <i class="fas fa-boxes"></i>
+                            <span>Inventario</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menus.html">
+                            <i class="fas fa-utensils"></i>
+                            <span>Menús</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="voluntarios.html">
+                            <i class="fas fa-handshake"></i>
+                            <span>Voluntarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="entregas.html">
+                            <i class="fas fa-truck"></i>
+                            <span>Entregas</span>
+                        </a>
+                    </li>
+                    <!-- Para el beneficiario que solicita entregas, podríamos tener una sección separada de "Mi Perfil" o "Mis Solicitudes" -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal del Dashboard -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar en el sistema...">
+                </div>
+                <div class="user-profile">
+                    <span class="welcome-message">Bienvenido, Admin!</span>
+                    <i class="fas fa-bell notification-icon"></i>
+                    <div class="user-avatar">
+                        <img src="../img/elena.jpg" alt="Admin Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-overview">
+                <h2>Dashboard General</h2>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <h3>Beneficiarios Registrados</h3>
+                        <p class="stat-value" id="totalBeneficiarios">0</p>
+                        <i class="fas fa-user-plus icon-bg"></i>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Alimento Disponible (Kg)</h3>
+                        <p class="stat-value" id="alimentoDisponible">0</p>
+                        <i class="fas fa-box icon-bg"></i>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Entregas Hoy</h3>
+                        <p class="stat-value" id="entregasHoy">0</p>
+                        <i class="fas fa-truck-moving icon-bg"></i>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Voluntarios Activos</h3>
+                        <p class="stat-value" id="voluntariosActivos">0</p>
+                        <i class="fas fa-handshake icon-bg"></i>
+                    </div>
+                </div>
+
+                <div class="dashboard-widgets">
+                    <div class="widget wide chart-widget">
+                        <h3>Actividad Semanal</h3>
+                        <canvas id="weeklyActivityChart"></canvas>
+                    </div>
+
+                    <div class="widget todo-widget">
+                        <h3>Tareas Pendientes</h3>
+                        <ul>
+                            <li><input type="checkbox"> Revisar solicitudes de beneficiarios</li>
+                            <li><input type="checkbox"> Realizar inventario mensual</li>
+                            <li><input type="checkbox"> Planificar menú de la próxima semana</li>
+                            <li><input type="checkbox"> Coordinar turnos de voluntarios</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Actividad Reciente</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Las filas se cargarán con JavaScript -->
+                            <tr>
+                                <td>2024-10-26</td>
+                                <td>Beneficiario</td>
+                                <td>Nuevo registro: Juan Pérez</td>
+                                <td>Admin</td>
+                            </tr>
+                            <tr>
+                                <td>2024-10-25</td>
+                                <td>Inventario</td>
+                                <td>Entrada de 50kg de arroz</td>
+                                <td>Admin</td>
+                            </tr>
+                            <tr>
+                                <td>2024-10-24</td>
+                                <td>Entrega</td>
+                                <td>Entrega a domicilio: María López</td>
+                                <td>Repartidor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="../JS/dashboard.js"></script>
+    <!-- Incluir Chart.js para las gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

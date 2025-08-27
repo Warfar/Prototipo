@@ -1,0 +1,351 @@
+/* Estilos específicos para la página de Entregas */
+
+.entregas-section {
+    padding: 0 30px 30px;
+}
+
+.entregas-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: left;
+}
+
+.actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Reutilizamos .btn-primary del CSS de dashboard/inventario */
+.btn-primary {
+    background-color: #48dbfb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2ab8df;
+}
+
+.filter-options label {
+    margin-right: 10px;
+    color: #555;
+}
+
+.filter-options select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+.filter-options select:last-child {
+    margin-right: 0;
+}
+
+
+.entregas-list.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.entregas-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.entregas-list th,
+.entregas-list td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.entregas-list th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+    color: #333;
+}
+
+.entregas-list tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.entregas-list tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* Badges de estado de la entrega */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+.status-pendiente {
+    background-color: #ffc107; /* Naranja/Amarillo */
+}
+
+.status-en_curso {
+    background-color: #007bff; /* Azul */
+}
+
+.status-completada {
+    background-color: #28a745; /* Verde */
+}
+
+.status-cancelada {
+    background-color: #dc3545; /* Rojo */
+}
+
+/* Botones de acción en tabla (reutilizamos estilos de inventario.css) */
+.actions {
+    white-space: nowrap;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.btn-icon:hover {
+    color: #48dbfb;
+}
+
+.btn-icon.delete-btn:hover {
+    color: #dc3545; /* Rojo para eliminar */
+}
+
+.btn-icon.edit-btn:hover {
+    color: #ffc107; /* Naranja para editar */
+}
+
+.btn-icon.view-btn:hover {
+    color: #007bff; /* Azul para ver */
+}
+.btn-icon.start-delivery-btn:hover {
+    color: #28a745; /* Verde para iniciar */
+}
+.btn-icon.complete-delivery-btn:hover {
+    color: #0056b3; /* Azul oscuro para completar */
+}
+
+
+/* Paginación (reutilizamos estilos de beneficiarios.css) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.btn-pagination {
+    background-color: #eee;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-pagination:hover {
+    background-color: #ddd;
+    border-color: #ccc;
+}
+
+.pagination span {
+    font-weight: 500;
+    color: #666;
+}
+
+/* Modal para Añadir/Editar/Ver Entrega (reutilizamos la estructura del modal de inventario) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.modal-content h3 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 24px); /* Ajuste para el padding */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #48dbfb;
+    box-shadow: 0 0 0 3px rgba(72, 219, 251, 0.2);
+}
+
+.modal-content .btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+#entregaDetailsContent p {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+#entregaDetailsContent strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Estilos para el mapa simulado */
+#deliveryMap {
+    background-image: url('https://via.placeholder.com/600x300?text=Mapa+de+Entrega+Simulado'); /* Imagen de mapa simulado */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ccc;
+}
+#deliveryMap p {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/* Media Queries para responsividad (similares a inventario.css) */
+@media (max-width: 768px) {
+    .actions-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .entregas-section {
+        padding: 0 15px 15px;
+    }
+
+    .entregas-list.card {
+        padding: 15px;
+    }
+
+    .entregas-list th,
+    .entregas-list td {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .filter-options {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .filter-options select {
+        flex: 1;
+        margin-right: 0;
+    }
+}

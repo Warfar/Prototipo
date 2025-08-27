@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Comedor Social</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <h1 class="logo">Comedor Social</h1>
+            <ul class="menu">
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#features">Funciones</a></li>
+                <li><a href="#testimonials">Testimonios</a></li> <!-- Nueva sección -->
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="dashboard.html" class="btn primary-btn">Ir al Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Gestión integral del <span class="highlight">comedor social</span></h2>
+                <p>Optimiza recursos, planifica menús y organiza entregas con eficiencia y rapidez.</p>
+                <a href="#features" class="btn secondary-btn">Conocer Funciones</a>
+            </div>
+            <div class="hero-image">
+                <!-- Aquí puedes colocar una imagen descriptiva o un SVG más elaborado -->
+                <img src="../img/comedor.jpg" alt="Comedor Social Ilustración">
+                <!-- O puedes mantener tu SVG anterior si te gusta: -->
+                <!-- <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" fill="#ff6b6b"/>
+                    <circle cx="100" cy="100" r="60" fill="#feca57"/>
+                    <circle cx="100" cy="100" r="40" fill="#48dbfb"/>
+                </svg> -->
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about section-padding">
+        <h2 class="section-title">Sobre el Sistema</h2>
+        <p class="section-description">El sistema permite registrar beneficiarios, controlar inventario de alimentos, planificar menús semanales y coordinar voluntarios y entregas a domicilio, optimizando los recursos y garantizando un servicio eficiente y de calidad.</p>
+        <div class="about-cards">
+            <div class="card">
+                <i class="fas fa-users card-icon"></i>
+                <h3>Beneficiarios</h3>
+                <p>Registra y actualiza información de las personas atendidas.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-boxes card-icon"></i>
+                <h3>Inventario</h3>
+                <p>Controla la entrada y salida de alimentos para asegurar disponibilidad.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-utensils card-icon"></i>
+                <h3>Menús</h3>
+                <p>Planifica menús semanales según recursos disponibles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features section-padding bg-light">
+        <h2 class="section-title">Funciones Principales</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <i class="fas fa-user-plus feature-icon"></i>
+                <h3>Registrar beneficiarios</h3>
+                <p>Agregar y actualizar la información básica de los beneficiarios.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-warehouse feature-icon"></i>
+                <h3>Gestionar inventario</h3>
+                <p>Controla la entrada y salida de alimentos para asegurar disponibilidad.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-calendar-alt feature-icon"></i>
+                <h3>Planificar menús</h3>
+                <p>Define menús semanales considerando cantidad y tipo de alimentos.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-handshake feature-icon"></i>
+                <h3>Coordinar voluntarios</h3>
+                <p>Asigna y actualiza los turnos según necesidades.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-truck feature-icon"></i>
+                <h3>Registrar entregas</h3>
+                <p>Controla entregas a domicilio para personas con movilidad reducida.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-box-open feature-icon"></i>
+                <h3>Solicitar entregas</h3>
+                <p>Beneficiarios solicitan y confirman entregas a domicilio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva Sección: Testimonios -->
+    <section id="testimonials" class="testimonials section-padding">
+        <h2 class="section-title">Lo que dicen de nosotros</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Este sistema ha transformado la forma en que gestionamos nuestro comedor. ¡Es increíblemente eficiente!"</p>
+                <div class="testimonial-author">- María G., Coordinadora</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"La gestión de inventario ahora es mucho más sencilla y podemos planificar mejor."</p>
+                <div class="testimonial-author">- Juan P., Voluntario</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Nos ha permitido servir a más personas y de una manera más organizada."</p>
+                <div class="testimonial-author">- Ana R., Directora</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding bg-light">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-description">Para más información sobre el sistema, escríbenos y te atenderemos.</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit" class="btn primary-btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sistema Comedor Social | Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
